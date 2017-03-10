@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="@android:color/darker_gray">
+    <!--tools:context="com.minigamecollection.minigamecollection.ResultPopup"-->
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/results"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="166dp"-->
+        <!--android:text="Win Or Lose"-->
+        <!--android:textColor="@android:color/black"-->
+        <!--android:textSize="30sp" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/newgame"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignLeft="@+id/results"-->
+        <!--android:layout_alignStart="@+id/results"-->
+        <!--android:layout_below="@+id/results"-->
+        <!--android:layout_marginTop="42dp"-->
+        <!--android:text="New Game" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/exit"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBaseline="@+id/newgame"-->
+        <!--android:layout_alignBottom="@+id/newgame"-->
+        <!--android:layout_marginLeft="22dp"-->
+        <!--android:layout_marginStart="22dp"-->
+        <!--android:layout_toEndOf="@+id/newgame"-->
+        <!--android:layout_toRightOf="@+id/newgame"-->
+        <!--android:text="Exit" />-->
+</RelativeLayout>
