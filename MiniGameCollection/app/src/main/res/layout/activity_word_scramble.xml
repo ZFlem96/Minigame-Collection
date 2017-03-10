@@ -10,4 +10,165 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.minigamecollection.minigamecollection.WordScrambleActivity">
 
+    <TextView
+        android:id="@+id/timerId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="30"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/timeChangerId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/thirty"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="showTimeOptions"
+        android:text="Time Changer" />
+
+    <TextView
+        android:id="@+id/theWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/minute"
+        android:layout_marginTop="160dp"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/theWord"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/subId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:onClick="submit"
+        android:text="Submit" />
+
+    <Button
+        android:id="@+id/thirty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="setTo30"
+        android:text="30" />
+
+    <Button
+        android:id="@+id/sixty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="setTo60"
+        android:text="60"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/thirty"
+        android:layout_toEndOf="@+id/thirty" />
+
+    <Button
+        android:id="@+id/pauseId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/subId"
+        android:layout_alignStart="@+id/subId"
+        android:layout_alignTop="@+id/timeChangerId"
+        android:onClick="pause"
+        android:text="Pause" />
+
+    <Button
+        android:id="@+id/goId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pauseId"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/pauseId"
+        android:layout_toRightOf="@+id/pauseId"
+        android:onClick="go"
+        android:text="Go" />
+
+    <TextView
+        android:id="@+id/scrambleResultsId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/subId"
+        android:layout_alignRight="@+id/subId"
+        android:layout_below="@+id/timerId"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="50dp"
+        android:text="Results"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/scrNewGameId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText"
+        android:layout_alignEnd="@+id/sixty"
+        android:layout_alignRight="@+id/sixty"
+        android:layout_marginBottom="8dp"
+        android:onClick="newGame"
+        android:text="New Game" />
+
+    <Button
+        android:id="@+id/scrExitId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/scrNewGameId"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/scrNewGameId"
+        android:layout_toRightOf="@+id/scrNewGameId"
+        android:onClick="exit"
+        android:text="Exit" />
+
+    <TextView
+        android:id="@+id/scoreId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/subId"
+        android:layout_marginTop="32dp"
+        android:text="Score:"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/strikeID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/scoreId"
+        android:layout_marginTop="21dp"
+        android:text="Strikes: "
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
 </RelativeLayout>
