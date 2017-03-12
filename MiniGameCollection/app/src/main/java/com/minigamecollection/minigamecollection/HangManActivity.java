@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +24,19 @@ public class HangManActivity extends AppCompatActivity {
     private String slFirstPart, ltFirstPart;
     private boolean gameComplete = false, playerWins = false;
     private Button newGame, exitGame, lettSubBttn, wordSubBttn;
+    private ImageView hangmanInit, hangmanHead, hangmanTorso,hangmanLArm, hangmanRArm, hangmanLLeg, completehangman;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hang_man);
+        hangmanInit = (ImageView) findViewById(R.id.thehangmaninit);
+        hangmanTorso = (ImageView) findViewById(R.id.thehangmanwtorso);
+        hangmanHead = (ImageView) findViewById(R.id.thehangmanwhead);
+        hangmanLArm = (ImageView) findViewById(R.id.thehangmanwleftarm);
+        hangmanRArm = (ImageView) findViewById(R.id.thehangmanwrightarm);
+        hangmanLLeg = (ImageView) findViewById(R.id.thehangmanwleftleg);
+        completehangman = (ImageView) findViewById(R.id.thecompletehangman);
         chosenWord = (TextView) findViewById(R.id.word);
         triedLetters = (TextView) findViewById(R.id.lettersTried);
         subLetter = (EditText) findViewById(R.id.letterTyped);
@@ -51,6 +60,12 @@ public class HangManActivity extends AppCompatActivity {
         results.setVisibility(View.INVISIBLE);
         newGame.setVisibility(View.INVISIBLE);
         exitGame.setVisibility(View.INVISIBLE);
+        hangmanLLeg.setVisibility(View.INVISIBLE);
+        hangmanLArm.setVisibility(View.INVISIBLE);
+        hangmanRArm.setVisibility(View.INVISIBLE);
+        hangmanHead.setVisibility(View.INVISIBLE);
+        hangmanTorso.setVisibility(View.INVISIBLE);
+        completehangman.setVisibility(View.INVISIBLE);
     }
 
     public void submitLetter(View v){
@@ -89,6 +104,7 @@ public class HangManActivity extends AppCompatActivity {
                     if(!isValid){
                         Toast.makeText(HangManActivity.this, "Nope.", Toast.LENGTH_SHORT).show();
                         strikes++;
+                        displayHangman();
                         if(strikes==6||strikes>6){
                             gameComplete = true;
                             playerWins = false;
@@ -132,6 +148,7 @@ public class HangManActivity extends AppCompatActivity {
                 gameComplete = true;
                 playerWins = false;
                 Toast.makeText(HangManActivity.this, "Nope. You Loose.", Toast.LENGTH_SHORT).show();
+                hangmanInit.setVisibility(View.INVISIBLE);
                 result(playerWins);
             }
         }
@@ -148,6 +165,13 @@ public class HangManActivity extends AppCompatActivity {
         wordSubBttn.setVisibility(View.INVISIBLE);
         letterPrompt.setVisibility(View.INVISIBLE);
         wordPrompt.setVisibility(View.INVISIBLE);
+        hangmanInit.setVisibility(View.INVISIBLE);
+        hangmanHead.setVisibility(View.INVISIBLE);
+        hangmanTorso.setVisibility(View.INVISIBLE);
+        hangmanLArm.setVisibility(View.INVISIBLE);
+        hangmanRArm.setVisibility(View.INVISIBLE);
+        hangmanLLeg.setVisibility(View.INVISIBLE);
+        completehangman.setVisibility(View.INVISIBLE);
         String message="";
         if(playerWins){
             message = "Congrats! You Won";
@@ -169,6 +193,73 @@ public class HangManActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void displayHangman(){
+        switch (strikes){
+            case 0:
+                hangmanInit.setVisibility(View.VISIBLE);
+                hangmanHead.setVisibility(View.INVISIBLE);
+                hangmanTorso.setVisibility(View.INVISIBLE);
+                hangmanLArm.setVisibility(View.INVISIBLE);
+                hangmanRArm.setVisibility(View.INVISIBLE);
+                hangmanLLeg.setVisibility(View.INVISIBLE);
+                completehangman.setVisibility(View.INVISIBLE);
+                break;
+            case 1:
+                hangmanInit.setVisibility(View.INVISIBLE);
+                hangmanHead.setVisibility(View.VISIBLE);
+                hangmanTorso.setVisibility(View.INVISIBLE);
+                hangmanLArm.setVisibility(View.INVISIBLE);
+                hangmanRArm.setVisibility(View.INVISIBLE);
+                hangmanLLeg.setVisibility(View.INVISIBLE);
+                completehangman.setVisibility(View.INVISIBLE);
+                break;
+            case 2:
+                hangmanInit.setVisibility(View.INVISIBLE);
+                hangmanHead.setVisibility(View.INVISIBLE);
+                hangmanTorso.setVisibility(View.VISIBLE);
+                hangmanLArm.setVisibility(View.INVISIBLE);
+                hangmanRArm.setVisibility(View.INVISIBLE);
+                hangmanLLeg.setVisibility(View.INVISIBLE);
+                completehangman.setVisibility(View.INVISIBLE);
+                break;
+            case 3:
+                hangmanInit.setVisibility(View.INVISIBLE);
+                hangmanHead.setVisibility(View.INVISIBLE);
+                hangmanTorso.setVisibility(View.INVISIBLE);
+                hangmanLArm.setVisibility(View.VISIBLE);
+                hangmanRArm.setVisibility(View.INVISIBLE);
+                hangmanLLeg.setVisibility(View.INVISIBLE);
+                completehangman.setVisibility(View.INVISIBLE);
+                break;
+            case 4:
+                hangmanInit.setVisibility(View.INVISIBLE);
+                hangmanHead.setVisibility(View.INVISIBLE);
+                hangmanTorso.setVisibility(View.INVISIBLE);
+                hangmanLArm.setVisibility(View.INVISIBLE);
+                hangmanRArm.setVisibility(View.VISIBLE);
+                hangmanLLeg.setVisibility(View.INVISIBLE);
+                completehangman.setVisibility(View.INVISIBLE);
+                break;
+            case 5:
+                hangmanInit.setVisibility(View.INVISIBLE);
+                hangmanHead.setVisibility(View.INVISIBLE);
+                hangmanTorso.setVisibility(View.INVISIBLE);
+                hangmanLArm.setVisibility(View.INVISIBLE);
+                hangmanRArm.setVisibility(View.INVISIBLE);
+                hangmanLLeg.setVisibility(View.VISIBLE);
+                completehangman.setVisibility(View.INVISIBLE);
+                break;
+            case 6:
+                hangmanInit.setVisibility(View.INVISIBLE);
+                hangmanHead.setVisibility(View.INVISIBLE);
+                hangmanTorso.setVisibility(View.INVISIBLE);
+                hangmanLArm.setVisibility(View.INVISIBLE);
+                hangmanRArm.setVisibility(View.INVISIBLE);
+                hangmanLLeg.setVisibility(View.INVISIBLE);
+                completehangman.setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
 }

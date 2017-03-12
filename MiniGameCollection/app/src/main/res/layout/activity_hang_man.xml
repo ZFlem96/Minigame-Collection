@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_hang_man"
     android:layout_width="match_parent"
@@ -9,12 +10,51 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.minigamecollection.minigamecollection.HangManActivity">
-    <com.minigamecollection.minigamecollection.HangManCanvasView
+
+    <ImageView
+        android:id="@+id/thehangmaninit"
+        android:layout_width="500dp"
         android:layout_height="350dp"
-        android:textColor="#FFFFFF"
-        android:id="@+id/signature_canvas"
-        android:layout_width="match_parent"
-        />
+        app:srcCompat="@drawable/hangmaninit" />
+
+    <ImageView
+        android:id="@+id/thehangmanwhead"
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/hangmanwhead" />
+
+    <ImageView
+        android:id="@+id/thehangmanwtorso"
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/hangmanwtorso" />
+
+    <ImageView
+        android:id="@+id/thehangmanwleftarm"
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/hangmanwleftarm" />
+
+    <ImageView
+        android:id="@+id/thehangmanwrightarm"
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/hangmanwrightarm" />
+
+    <ImageView
+        android:id="@+id/thehangmanwleftleg"
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/hangmanwleftleg" />
+
+    <ImageView
+        android:id="@+id/thecompletehangman"
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/completehangman" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -68,7 +108,7 @@
         android:id="@id/tableRow3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signature_canvas"
+        android:layout_below="@+id/thehangmaninit"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -110,39 +150,39 @@
             android:text="Submit" />
     </TableRow>
     <TextView
-    android:id="@+id/results"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="93dp"
-    android:text="result"
-    android:textAllCaps="true"
-    android:textColor="@android:color/black"
-    android:textSize="36sp" />
+        android:id="@+id/results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="93dp"
+        android:text="result"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="36sp" />
 
     <Button
-    android:id="@+id/newgame"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="New Game"
-    android:layout_marginTop="16dp"
-    android:layout_marginRight="34dp"
-    android:layout_marginEnd="34dp"
-    android:layout_below="@+id/results"
-    android:layout_toLeftOf="@+id/exit"
-    android:layout_toStartOf="@+id/exit" />
+        android:id="@+id/newgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Game"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_below="@+id/results"
+        android:layout_toLeftOf="@+id/exit"
+        android:layout_toStartOf="@+id/exit" />
 
     <Button
-    android:id="@+id/exit"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Exit"
-    android:layout_marginRight="70dp"
-    android:layout_marginEnd="70dp"
-    android:layout_alignBaseline="@+id/newgame"
-    android:layout_alignBottom="@+id/newgame"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true" />
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:layout_marginRight="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_alignBaseline="@+id/newgame"
+        android:layout_alignBottom="@+id/newgame"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
