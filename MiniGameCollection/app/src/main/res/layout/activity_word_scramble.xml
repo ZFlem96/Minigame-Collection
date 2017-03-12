@@ -40,7 +40,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/minute"
         android:layout_marginTop="160dp"
         android:textSize="30sp" />
 
@@ -114,16 +113,16 @@
         android:id="@+id/scrambleResultsId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/subId"
-        android:layout_alignRight="@+id/subId"
-        android:layout_below="@+id/timerId"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
         android:text="Results"
         android:textAllCaps="true"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_above="@+id/scrNewGameId"
+        android:layout_alignRight="@+id/subId"
+        android:layout_alignEnd="@+id/subId"
+        android:layout_marginBottom="18dp" />
 
     <Button
         android:id="@+id/scrNewGameId"
