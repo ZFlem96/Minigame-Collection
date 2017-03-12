@@ -42,11 +42,11 @@ Button tmp;
         tmp = MainActivity.getGame1();
         if (tmp.getText().toString().equalsIgnoreCase("Game Name 1 | Game Type | % Done")) {
             tmp.setText(gameName + " | % Done");
-        } else {
+        } else if(!tmp.getText().toString().equalsIgnoreCase("Game Name 1 | Game Type | % Done")){
             tmp = MainActivity.getGame2();
             if (tmp.getText().toString().equalsIgnoreCase("Game Name 2 | Game Type | % Done")) {
                 tmp.setText(gameName + " | % Done");
-            } else {
+            } else if(!tmp.getText().toString().equalsIgnoreCase("Game Name 2 | Game Type | % Done")){
                 tmp = MainActivity.getGame3();
                 if (tmp.getText().toString().equalsIgnoreCase("Game Name 3 | Game Type | % Done")) {
                     tmp.setText(gameName + " | % Done");
