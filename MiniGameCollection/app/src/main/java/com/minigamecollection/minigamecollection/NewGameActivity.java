@@ -40,17 +40,17 @@ public class NewGameActivity extends AppCompatActivity {
     public void addGame(View v) {
         if (v instanceof Button) {
             Button button = (Button) v;
-            switch (button.getId()) {
-                case R.id.wordScramble:
-                    setGNameButton("Word Scramble");
-                    break;
-                case R.id.wordSearch:
-                    setGNameButton("Word Search");
-                    break;
-                case R.id.hangMan:
-                    setGNameButton("Hang Man");
-                    break;
-            }
+//            switch (button.getId()) {
+//                case R.id.wordScramble:
+//                    setGNameButton("Word Scramble");
+//                    break;
+//                case R.id.wordSearch:
+//                    setGNameButton("Word Search");
+//                    break;
+//                case R.id.hangMan:
+//                    setGNameButton("Hang Man");
+//                    break;
+//            }
         }
     }
 
