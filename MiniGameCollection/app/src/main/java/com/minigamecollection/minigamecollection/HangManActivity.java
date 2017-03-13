@@ -10,26 +10,42 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.minigamecollection.minigamecollection.dbobjects.HangManSave;
+import com.minigamecollection.minigamecollection.statemanagers.SaveGame;
+import com.minigamecollection.minigamecollection.statemanagers.SaveType;
+import com.minigamecollection.minigamecollection.statemanagers.games.HangManData;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class HangManActivity extends AppCompatActivity {
     private String[] examples = {"word", "hi", "example", "temple"};
-    private ArrayList<Character> guessedLetters = new ArrayList<>();
-    private char[] reveal;
+    public ArrayList<Character> guessedLetters = new ArrayList<>();
+    public char[] reveal;
     private EditText subLetter, subWord;
-    private TextView chosenWord, triedLetters, results, wordPrompt, letterPrompt;
-    private String winningWord, hiddenWord = "";
-    private int strikes = 0, correctGuesses = 0;
+    public TextView chosenWord, triedLetters, results, wordPrompt, letterPrompt;
+    public String winningWord, hiddenWord = "";
+    public int strikes = 0, correctGuesses = 0;
     private String slFirstPart, ltFirstPart;
     private boolean gameComplete = false, playerWins = false;
     private Button newGame, exitGame, lettSubBttn, wordSubBttn;
     private ImageView hangmanInit, hangmanHead, hangmanTorso,hangmanLArm, hangmanRArm, hangmanLLeg, completehangman;
+    private SaveGame saveGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hang_man);
+
+        Bundle extras = this.getIntent().getExtras();
+        boolean isLoading = false;
+        if (extras != null && !extras.isEmpty()) {
+            saveGame = (SaveGame) extras.getSerializable("save");
+            isLoading = extras.getBoolean("loading");
+        } else {
+            finish();
+        }
+
         hangmanInit = (ImageView) findViewById(R.id.thehangmaninit);
         hangmanTorso = (ImageView) findViewById(R.id.thehangmanwtorso);
         hangmanHead = (ImageView) findViewById(R.id.thehangmanwhead);
@@ -66,6 +82,13 @@ public class HangManActivity extends AppCompatActivity {
         hangmanHead.setVisibility(View.INVISIBLE);
         hangmanTorso.setVisibility(View.INVISIBLE);
         completehangman.setVisibility(View.INVISIBLE);
+
+        if (isLoading) {
+            saveGame.load(this);
+            ltFirstPart = triedLetters.getText().toString();
+            displayHangman();
+        }
+
     }
 
     public void submitLetter(View v){
@@ -109,7 +132,10 @@ public class HangManActivity extends AppCompatActivity {
                             gameComplete = true;
                             playerWins = false;
                             Toast.makeText(HangManActivity.this, "You Loose.", Toast.LENGTH_SHORT).show();
+                            saveGame.delete(this);
                             result(playerWins);
+                        } else {
+                            saveGame.save(this);
                         }
                     }else if(isValid){
                         hiddenWord = "";
@@ -121,15 +147,18 @@ public class HangManActivity extends AppCompatActivity {
                             gameComplete = true;
                             playerWins = true;
                             Toast.makeText(HangManActivity.this, "You Win.", Toast.LENGTH_SHORT).show();
+                            saveGame.delete(this);
                             result(playerWins);
                         }else {
                             Toast.makeText(HangManActivity.this, "Correct.", Toast.LENGTH_SHORT).show();
+                            saveGame.save(this);
                         }
                     }
                 } else{
                     gameComplete = true;
                     playerWins = false;
                     Toast.makeText(HangManActivity.this, "You Loose.", Toast.LENGTH_SHORT).show();
+                    saveGame.delete(this);
                     result(playerWins);
                 }
             }
@@ -183,6 +212,8 @@ public class HangManActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HangManActivity.this, HangManActivity.class);
+                intent.putExtra("save", new SaveGame(saveGame.getSaveName(), SaveType.HANGMAN, new HangManData(new HangManSave())));
+                intent.putExtra("loading", false);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

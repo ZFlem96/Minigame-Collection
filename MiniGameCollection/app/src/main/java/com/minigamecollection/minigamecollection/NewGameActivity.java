@@ -1,10 +1,17 @@
 package com.minigamecollection.minigamecollection;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
+
+import com.minigamecollection.minigamecollection.dbobjects.HangManSave;
+import com.minigamecollection.minigamecollection.statemanagers.SaveGame;
+import com.minigamecollection.minigamecollection.statemanagers.SaveType;
+import com.minigamecollection.minigamecollection.statemanagers.games.HangManData;
 
 public class NewGameActivity extends AppCompatActivity {
 
@@ -13,6 +20,7 @@ public class NewGameActivity extends AppCompatActivity {
     RadioButton radioButtonWordScramble;
     RadioButton radioButtonHangMan;
     RadioButton radioButtonWordSearch;
+    EditText editTextSaveGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +31,20 @@ public class NewGameActivity extends AppCompatActivity {
         radioButtonWordScramble = (RadioButton)findViewById(R.id.radioButtonWordScramble);
         radioButtonHangMan = (RadioButton)findViewById(R.id.radioButtonHangMan);
         radioButtonWordSearch = (RadioButton)findViewById(R.id.radioButtonWordSearch);
+        editTextSaveGame = (EditText)findViewById(R.id.editTextSaveGame);
     }
 
     public void onClickCreateGame(View v) {
+        if (radioButtonHangMan.isChecked()) {
+            Intent intent = new Intent(this, HangManActivity.class);
+            intent.putExtra("save", new SaveGame(editTextSaveGame.getText().toString(), SaveType.HANGMAN, new HangManData(new HangManSave())));
+            intent.putExtra("loading", false);
+            startActivity(intent);
+        } else if (radioButtonWordScramble.isChecked()) {
 
+        } else if (radioButtonWordSearch.isChecked()) {
+
+        }
     }
 
     public void submitSearch(View v) {
