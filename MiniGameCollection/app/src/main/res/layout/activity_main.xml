@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -11,119 +12,64 @@
     tools:context="com.minigamecollection.minigamecollection.MainActivity">
 
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_gravity="bottom|center"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:layout_marginTop="32dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <Button
-            android:text="Highscores"
+        <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="0dp"
+            android:text="Minigame Collection"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/ngButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:onClick="addNewGame"
+            android:text="New Game" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/listViewLoadGames"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
             android:id="@+id/HighScore"
-            android:textAlignment="textEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:onClick="displayScoreBoard"/>
-    </TableRow>
-
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tLayout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-        >
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <TextView
-                android:text="Minigame Collection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/title"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="25sp"
-                android:textColor="@android:color/black"
-                android:padding="0dp"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textStyle="normal|bold" />
-
-            <Button
-                android:text="New Game"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ngButton"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:onClick="addNewGame"
-                />
+            android:layout_weight="1"
+            android:onClick="displayScoreBoard"
+            android:text="Highscores"
+            android:textAlignment="center" />
+    </LinearLayout>
 
 
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:text="Game Name 1 | Game Type | % Done"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/gname1"
-                android:textStyle="normal"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:padding="0dp"
-                android:onClick="startGame"/>
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:text="Game Name 2 | Game Type | % Done"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/gname2"
-                android:textStyle="normal"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:padding="0dp"
-                android:onClick="startGame"/>
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:text="Game Name 3 | Game Type | % Done"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/gname3"
-                android:textStyle="normal"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:padding="0dp"
-                android:onClick="startGame"/>
-        </TableRow>
-
-    </TableLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

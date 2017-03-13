@@ -1,184 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_new_game"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.minigamecollection.minigamecollection.NewGameActivity">
 
-    <TableLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="292dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:padding="0dp"
+            android:text="New Game"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="0dp"
+            android:text="Enter game name here"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/radioButtonWordScramble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Word Scramble" />
+
+            <RadioButton
+                android:id="@+id/radioButtonHangMan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hang Man" />
+
+            <RadioButton
+                android:id="@+id/radioButtonWordSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Word Search" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonCreateGame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="onClickCreateGame"
+            android:padding="0dp"
+            android:text="Create Game"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical">
 
-        <TableRow
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_above="@+id/addWord"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="Add to Word Database"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:padding="0dp"
-                android:text="Game Search"
-                android:textColor="@android:color/black"
-                android:textSize="25sp"
-                android:textStyle="normal|bold" />
-        </TableRow>
-
-        <TableRow
+        <EditText
+            android:id="@+id/addWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="0dp"
-                android:text="Enter game name here"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/searchSubmit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="0dp"
-                android:text="Submit"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                android:onClick="submitSearch"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:padding="0dp"
-                android:text="Game Types"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/wordScramble"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="0dp"
-                android:text="Word Scramble"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="normal|bold"
-                android:onClick="addGame"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/hangMan"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="0dp"
-                android:text="Hang Man"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="normal|bold"
-                android:onClick="addGame"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/wordSearch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:padding="0dp"
-                android:text="Word Search"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="normal|bold"
-                android:onClick="addGame"/>
-        </TableRow>
-        <!--</TableLayout>-->
-
-        <TableRow
-            android:id="@+id/tableRow"
-            android:layout_width="450dp"
-            android:layout_height="35dp"
             android:layout_above="@+id/submitBttn"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-    </TableLayout>
+            android:layout_alignParentStart="true"
+            android:layout_gravity="end"
+            android:text=""
+            android:textAlignment="textEnd" />
 
-    <Button
-        android:id="@+id/submitBttn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:onClick="submitToDatabase"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:id="@+id/submitBttn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="submitToDatabase"
+            android:text="Submit" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add to Word Database"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:layout_above="@+id/addWord"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:id="@+id/addWord"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/submitBttn"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="end"
-        android:text=""
-        android:textAlignment="textEnd" />
-</RelativeLayout>
+</LinearLayout>

@@ -4,13 +4,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 public class NewGameActivity extends AppCompatActivity {
-Button tmp;
+
+    Button tmp;
+    Button buttonCreateGame;
+    RadioButton radioButtonWordScramble;
+    RadioButton radioButtonHangMan;
+    RadioButton radioButtonWordSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
+
+        buttonCreateGame = (Button)findViewById(R.id.buttonCreateGame);
+        radioButtonWordScramble = (RadioButton)findViewById(R.id.radioButtonWordScramble);
+        radioButtonHangMan = (RadioButton)findViewById(R.id.radioButtonHangMan);
+        radioButtonWordSearch = (RadioButton)findViewById(R.id.radioButtonWordSearch);
+    }
+
+    public void onClickCreateGame(View v) {
+
     }
 
     public void submitSearch(View v) {
@@ -42,11 +58,11 @@ Button tmp;
         tmp = MainActivity.getGame1();
         if (tmp.getText().toString().equalsIgnoreCase("Game Name 1 | Game Type | % Done")) {
             tmp.setText(gameName + " | % Done");
-        } else if(!tmp.getText().toString().equalsIgnoreCase("Game Name 1 | Game Type | % Done")){
+        } else if (!tmp.getText().toString().equalsIgnoreCase("Game Name 1 | Game Type | % Done")) {
             tmp = MainActivity.getGame2();
             if (tmp.getText().toString().equalsIgnoreCase("Game Name 2 | Game Type | % Done")) {
                 tmp.setText(gameName + " | % Done");
-            } else if(!tmp.getText().toString().equalsIgnoreCase("Game Name 2 | Game Type | % Done")){
+            } else if (!tmp.getText().toString().equalsIgnoreCase("Game Name 2 | Game Type | % Done")) {
                 tmp = MainActivity.getGame3();
                 if (tmp.getText().toString().equalsIgnoreCase("Game Name 3 | Game Type | % Done")) {
                     tmp.setText(gameName + " | % Done");
